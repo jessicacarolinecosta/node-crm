@@ -14,7 +14,7 @@ module.exports = (app) => {
                     const usuarioRetorno = data ? data.toObject() : null;
                     if (usuarioRetorno && bcrypt.compareSync(senha, usuarioRetorno.password)) {
                         const token = jwt.sign({ usuarioId: usuarioRetorno._id }, process.env.SECRET, {
-                            expiresIn: 600
+                            expiresIn: 6000
                         });
                         retorno.envia(res,200,true,null,null,{ success: true, token: token });
                     } else {
