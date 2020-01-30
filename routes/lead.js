@@ -6,4 +6,5 @@ module.exports = (app) => {
     app.post('/api/v1/lead/create', autenticacao.verificaJWT, lead.save);
     app.post('/api/v1/lead/update', autenticacao.verificaJWT, lead.update);
     app.post('/api/v1/lead/remove', autenticacao.verificaJWT, lead.delete);
+    app.post('/api/v1/lead/list', autenticacao.verificaJWT, lead.list);
 };

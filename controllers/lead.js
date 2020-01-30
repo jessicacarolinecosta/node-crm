@@ -12,6 +12,15 @@ module.exports = (app) => {
                     retorno.envia(res,400,false,erro,'Falha ao buscar informações do lead',null);
                 });
         },
+        list(req, res) {
+            lead.find({})
+                .then(data => {
+                    retorno.envia(res, 200, true, null, null, data);
+                }).catch(erro => {
+                    logs.log('error', erro);
+                    retorno.envia(res,400,false,erro,'Falha ao buscar informações',null);
+                });
+        },
         save(req, res){
             var newLead = new lead();
             newLead.name = req.body.name;
